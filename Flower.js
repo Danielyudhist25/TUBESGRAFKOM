@@ -52,7 +52,7 @@ export class Flower {
 
     grow() {
         if (this.growth < this.maxGrowth && !this.isDry) {
-            this.growth += 0.0001;
+            this.growth += 0.0005;
             this.flowerGroup.scale.set(this.growth, this.growth, this.growth);
             this.lastWatered = Date.now(); // Reset timer saat disiram
         }
