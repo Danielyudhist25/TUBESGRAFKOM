@@ -49,3 +49,38 @@ export class Flower {
         this.group.add(this.flowerGroup);
         this.scene.add(this.group);
     }
+
+    grow() {
+        if (this.growth < this.maxGrowth && !this.isDry) {
+            this.growth += 0.0001;
+            this.flowerGroup.scale.set(this.growth, this.growth, this.growth);
+            this.lastWatered = Date.now(); // Reset timer saat disiram
+        }
+    }
+
+    update() {
+        const now = Date.now();
+        const timeSinceWater = (now - this.lastWatered) / 1000;
+
+        // Jika tidak disiram 3 menit (180 detik)
+        if (timeSinceWater > 180 && !this.isDry) {
+            this.makeDry();
+        }
+
+        // Jika sudah kering lebih dari 5 detik, hapus
+        if (this.isDry && timeSinceWater > 305) {
+            this.die();
+        }
+    }
+
+    makeDry() {
+        this.isDry = true;
+        this.stemMat.color.set(0x8b4513); // Coklat kering
+        this.petalMat.color.set(0x555522); // Kuning layu
+    }
+
+    die() {
+        this.scene.remove(this.group);
+        this.alive = false;
+    }
+}
