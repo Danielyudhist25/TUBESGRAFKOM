@@ -13,18 +13,30 @@ body { margin: 0; overflow: hidden; background-color: #000; font-family: 'Segoe 
     position: absolute;
     width: 100%; height: 100%;
     pointer-events: none;
+    z-index: 100;
 }
 
 .btn {
-    position: absolute; pointer-events: auto;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid white; color: white;
-    padding: 15px 25px; border-radius: 50px;
-    cursor: pointer; font-size: 1.2em;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
     transition: 0.3s;
+    backdrop-filter: blur(5px);
 }
 
-.btn:hover { background: rgba(255, 255, 255, 0.4); }
+.btn:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
 
-#water-btn { top: 20px; left: 20px; }
-#add-btn { bottom: 20px; left: 20px; font-size: 2em; width: 60px; height: 60px; padding: 0; }
+#water-btn { position: absolute; top: 20px; left: 20px; }
+
+.spawn-menu {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+}
