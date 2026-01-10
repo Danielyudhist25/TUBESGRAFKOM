@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zen Garden KW</title>
+    <title>Zen Garden KW - Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +10,11 @@
 
     <div class="ui-container">
         <button id="water-btn" class="btn">💧 Siram</button>
-        <button id="add-btn" class="btn">+</button>
+        <div class="spawn-menu">
+            <button onclick="spawn('flower')" class="btn">🌸 Bunga</button>
+            <button onclick="spawn('tree')" class="btn">🌳 Pohon</button>
+            <button onclick="spawn('cactus')" class="btn">🌵 Kaktus</button>
+        </div>
     </div>
 
     <script type="importmap">
